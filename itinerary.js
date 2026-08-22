@@ -64,6 +64,16 @@ function loadTripItinerary() {
     activeTrip.stops = [];
   }
 
+  // Rewrite Explore & Activities sidebar links to preserve active trip context
+  const exploreLink = document.getElementById("exploreSidebarLink");
+  if (exploreLink) {
+    exploreLink.href = `explore.html?tripId=${activeTrip.id}`;
+  }
+  const activitiesLink = document.getElementById("activitiesSidebarLink");
+  if (activitiesLink) {
+    activitiesLink.href = `activities.html?tripId=${activeTrip.id}`;
+  }
+
   // Simulate premium network delay with skeleton loaders
   skeleton.style.display = "block";
   content.style.display = "none";
@@ -199,6 +209,10 @@ function renderTimeline() {
                 </button>
               </div>
               
+              <a href="activities.html?tripId=${activeTrip.id}&stopId=${stop.id}" class="btn-card-action btn-card-accent" style="color: var(--accent); font-weight: 700; border-color: var(--accent); background: var(--accent-glow);">
+                <svg viewBox="0 0 24 24" style="stroke: var(--accent); stroke-width: 2.5;"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                Discover
+              </a>
               <button class="btn-card-action btn-card-primary" onclick="openAddActivityModal('${stop.id}')">
                 <svg viewBox="0 0 24 24" style="stroke-width:2.5;"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
                 Add Activity

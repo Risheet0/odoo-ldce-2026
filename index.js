@@ -129,6 +129,7 @@ function handleFormSubmit(event, type) {
     // Trigger premium simulation
     triggerSimulatedLoading(submitBtn, 'Sign In successful!', () => {
       showToast('Welcome back to GlobalTrotters! Redirecting...', 'success');
+      localStorage.setItem('globaltrotter_userId', 'user-jay');
       setTimeout(() => {
         window.location.href = 'dashboard.html';
       }, 1000);
@@ -174,6 +175,7 @@ function handleFormSubmit(event, type) {
     // Trigger premium simulation
     triggerSimulatedLoading(submitBtn, 'Account Created!', () => {
       showToast('Adventure awaits! Redirecting to dashboard...', 'success');
+      localStorage.setItem('globaltrotter_userId', 'user-jay');
       setTimeout(() => {
         window.location.href = 'dashboard.html';
       }, 1000);
