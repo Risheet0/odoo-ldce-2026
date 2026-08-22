@@ -951,6 +951,18 @@ function saveItineraryState() {
 }
 
 /**
+ * Navigate to Itinerary View Screen
+ */
+function goToItineraryView(e) {
+  if (e) e.preventDefault();
+  if (activeTrip) {
+    window.location.href = `itinerary-view.html?tripId=${activeTrip.id}`;
+  } else {
+    window.location.href = 'itinerary-view.html';
+  }
+}
+
+/**
  * Helper Modals triggers
  */
 function openAddStopModal() {
