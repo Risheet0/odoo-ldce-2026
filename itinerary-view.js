@@ -182,6 +182,10 @@ function renderHeader() {
   // Edit action links
   document.getElementById("btnEditItinerary").href = `itinerary.html?tripId=${activeTrip.id}`;
   document.getElementById("sidebarEditBtn").href = `itinerary.html?tripId=${activeTrip.id}`;
+  const budgetSidebarLink = document.getElementById("budgetSidebarLink");
+  if (budgetSidebarLink) budgetSidebarLink.href = `budget.html?tripId=${activeTrip.id}`;
+  const linkFullBudgetView = document.getElementById("linkFullBudgetView");
+  if (linkFullBudgetView) linkFullBudgetView.href = `budget.html?tripId=${activeTrip.id}`;
 
   // Metrics
   const startStr = formatDateShort(activeTrip.startDate);
