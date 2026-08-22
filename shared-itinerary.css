@@ -1,0 +1,997 @@
+/* ==========================================================================
+   GlobalTrotters Public Shared Itinerary Page - Visual & Premium Styling
+   ========================================================================== */
+
+/* Visual Hero Banner layout */
+.shared-hero-header {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  padding: 2.5rem 3rem;
+  box-shadow: var(--shadow-md);
+  margin-bottom: 2rem;
+}
+
+.hero-image-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform var(--transition-slow);
+}
+
+.shared-hero-header:hover .hero-image-bg {
+  transform: scale(1.03);
+}
+
+.hero-overlay-dark {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(18, 43, 30, 0.15) 0%, rgba(18, 43, 30, 0.5) 45%, rgba(18, 43, 30, 0.88) 100%);
+  z-index: 1;
+}
+
+.hero-text-container {
+  position: relative;
+  z-index: 2;
+  color: var(--text-on-dark);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.hero-badge-pill {
+  align-self: flex-start;
+  background-color: var(--accent);
+  color: white;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 4px 10px;
+  border-radius: var(--radius-xs);
+  box-shadow: 0 4px 10px rgba(217, 119, 6, 0.3);
+}
+
+.hero-trip-title {
+  font-family: var(--font-brand);
+  font-size: 2.8rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+  line-height: 1.1;
+  text-shadow: 0 2px 8px rgba(18, 43, 30, 0.5);
+}
+
+.hero-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #a4bfae;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-meta-dot {
+  color: var(--accent);
+  font-weight: 900;
+}
+
+.hero-creator-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  align-self: flex-start;
+}
+
+.creator-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--accent);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-family: var(--font-brand);
+  border: 2px solid white;
+}
+
+.creator-info {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.creator-title {
+  font-size: 0.75rem;
+  color: #a4bfae;
+}
+
+.creator-name {
+  font-size: 0.92rem;
+  color: white;
+}
+
+/* Sharing & Social Card Section */
+.sharing-card-section {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.sharing-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 2rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.sharing-left {
+  flex: 1;
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sharing-title {
+  font-family: var(--font-brand);
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.share-link-row {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.share-url-input {
+  flex: 1;
+  background-color: var(--bg-main);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 8px 12px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  outline: none;
+}
+
+.btn-copy {
+  padding: 8px 18px;
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+}
+
+.sharing-right {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.social-label {
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.social-share-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.social-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background-color: var(--bg-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  color: var(--text-secondary);
+}
+
+.social-btn svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  stroke-width: 2;
+  fill: none;
+}
+
+.social-btn:hover {
+  transform: translateY(-2px);
+  color: white;
+}
+
+.social-btn.whatsapp:hover { background-color: #25D366; border-color: #25D366; }
+.social-btn.twitter:hover { background-color: #1DA1F2; border-color: #1DA1F2; }
+.social-btn.facebook:hover { background-color: #1877F2; border-color: #1877F2; }
+.social-btn.email:hover { background-color: var(--primary); border-color: var(--primary); }
+.social-btn.native-share:hover { background-color: var(--accent); border-color: var(--accent); }
+
+/* Copy Trip Panel Banner Card */
+.copy-trip-cta-section {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.copy-trip-card {
+  background-color: var(--primary-glow);
+  border: 1.5px dashed var(--primary-light);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.copy-card-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex: 1;
+  min-width: 280px;
+}
+
+.copy-icon-circle {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background-color: var(--primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 10px var(--primary-glow);
+}
+
+.copy-icon-circle svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+  stroke-width: 2;
+  fill: none;
+}
+
+.copy-title {
+  font-family: var(--font-brand);
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+.copy-subtitle {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+
+.btn-copy-cta {
+  background-color: var(--primary);
+  color: white;
+  font-family: var(--font-brand);
+  font-weight: 700;
+  padding: 12px 24px;
+  border-radius: var(--radius-sm);
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.btn-copy-cta:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px var(--primary-glow);
+}
+
+.copy-login-prompt {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.login-sub-text {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+.btn-auth-sub {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btn-auth-sub:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.btn-auth-sub.primary-sub {
+  background-color: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+.btn-auth-sub.primary-sub:hover {
+  background-color: var(--primary-hover);
+}
+
+/* Visual Summary Cards */
+.summary-cards-section {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 2.25rem;
+}
+
+.summary-metric-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-fast);
+}
+
+.summary-metric-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.metric-label {
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+}
+
+.metric-value {
+  font-family: var(--font-brand);
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+/* Travel Route Roadflow */
+.route-map-section {
+  width: 100%;
+  margin-bottom: 2.5rem;
+}
+
+.section-heading {
+  font-family: var(--font-brand);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.route-flow-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 2rem;
+  box-shadow: var(--shadow-sm);
+  overflow-x: auto;
+}
+
+.route-track-line {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: max-content;
+  min-width: 100%;
+}
+
+.route-step-node {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  background-color: var(--bg-main);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 8px 14px;
+  transition: all var(--transition-fast);
+  color: inherit;
+}
+
+.route-step-node:hover {
+  border-color: var(--primary-light);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-1px);
+}
+
+.route-node-thumb {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.route-node-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.route-node-city {
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.route-node-days {
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+}
+
+.route-connector-item {
+  display: flex;
+  align-items: center;
+}
+
+.route-connector-line {
+  width: 25px;
+  height: 2px;
+  background-color: var(--border);
+}
+
+.route-transport-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background-color: var(--bg-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.route-transport-icon svg {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  fill: none;
+}
+
+/* Bottom Copy Trip Call to Action */
+.bottom-copy-trip-section {
+  width: 100%;
+  margin-top: 3.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.bottom-copy-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 3rem 2rem;
+  box-shadow: var(--shadow-sm);
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bottom-copy-heading {
+  font-family: var(--font-brand);
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.bottom-copy-subheading {
+  font-size: 1.02rem;
+  color: var(--text-secondary);
+  margin-top: 6px;
+  max-width: 480px;
+}
+
+/* Shared Error and Private warnings templates */
+.shared-error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 420px;
+  padding: 4rem 2rem;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  max-width: 600px;
+  margin: 4rem auto;
+}
+
+.error-illustration {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: var(--bg-card-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.error-illustration svg {
+  width: 40px;
+  height: 40px;
+  stroke: var(--text-muted);
+  stroke-width: 1.8;
+  fill: none;
+}
+
+.error-illustration.private-ill svg {
+  stroke: var(--accent);
+}
+
+.error-illustration.expired-ill svg {
+  stroke: var(--error);
+}
+
+.error-heading {
+  font-family: var(--font-brand);
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.error-message {
+  color: var(--text-secondary);
+  font-size: 0.98rem;
+  line-height: 1.5;
+  margin-bottom: 1.75rem;
+  max-width: 400px;
+}
+
+.error-actions {
+  display: flex;
+  gap: 12px;
+}
+
+/* Read-Only Timeline and Daily Cards modifications */
+.city-timeline-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.city-section-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.city-section-header {
+  height: 220px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  padding: 1.5rem 2rem;
+}
+
+.city-header-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 20%, rgba(18, 43, 30, 0.8) 100%);
+}
+
+.city-header-content {
+  position: relative;
+  z-index: 2;
+  color: white;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.city-order-badge {
+  background-color: var(--accent);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  padding: 3px 8px;
+  border-radius: var(--radius-xs);
+  display: inline-block;
+  margin-bottom: 4px;
+}
+
+.city-name-title {
+  font-family: var(--font-brand);
+  font-size: 1.85rem;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.city-country-title {
+  font-size: 0.95rem;
+  color: #a4bfae;
+  font-weight: 600;
+}
+
+.city-header-right {
+  display: flex;
+  gap: 8px;
+}
+
+.city-meta-pill {
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 4px 10px;
+  border-radius: var(--radius-xs);
+  font-size: 0.78rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: white;
+}
+
+.city-meta-pill svg {
+  width: 12px;
+  height: 12px;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  fill: none;
+}
+
+.city-days-container {
+  padding: 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.day-timeline-section {
+  border-left: 2px solid var(--border);
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.day-timeline-section::before {
+  content: "";
+  position: absolute;
+  left: -6px;
+  top: 6px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--primary);
+  border: 2px solid var(--bg-card);
+}
+
+.day-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.day-header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.day-badge-num {
+  font-size: 0.8rem;
+  font-weight: 800;
+  background-color: var(--primary);
+  color: white;
+  padding: 3px 8px;
+  border-radius: var(--radius-xs);
+  text-transform: uppercase;
+}
+
+.day-header-date {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.day-activities-count {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.day-activities-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.activity-view-card {
+  background-color: var(--bg-main);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  transition: border-color var(--transition-fast);
+}
+
+.activity-view-card:hover {
+  border-color: var(--primary-light);
+}
+
+.activity-card-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.activity-category-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(45, 106, 79, 0.08);
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.activity-category-icon svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  fill: none;
+}
+
+.activity-details {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.35;
+}
+
+.activity-name-text {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+
+.activity-timing-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.timing-badge {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.timing-badge svg {
+  width: 11px;
+  height: 11px;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  fill: none;
+}
+
+.activity-card-right {
+  display: flex;
+  align-items: center;
+}
+
+.activity-cost-pill {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--primary);
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: var(--radius-xs);
+}
+
+.activity-free-pill {
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.empty-day-note {
+  background-color: var(--bg-main);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-secondary);
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+.empty-day-note svg {
+  width: 16px;
+  height: 16px;
+  stroke: var(--text-muted);
+  stroke-width: 2.2;
+  fill: none;
+  flex-shrink: 0;
+}
+
+.city-transition-connector {
+  display: flex;
+  justify-content: center;
+  margin: 0.5rem 0;
+}
+
+.transition-mode-badge {
+  background-color: var(--primary-glow);
+  border: 1.5px dashed var(--primary-light);
+  color: var(--primary);
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.transition-mode-badge svg {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  fill: none;
+}
+
+.transition-arrow {
+  font-weight: 900;
+}
+
+/* SKELETON SHIMMERS */
+.shared-skeleton-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.skeleton-shimmer {
+  background: linear-gradient(90deg, #F1EAE0 25%, #E5DFD1 50%, #F1EAE0 75%);
+  background-size: 200% 100%;
+  animation: loadingSkeleton 1.5s infinite;
+  border-radius: var(--radius-md);
+}
+
+.skeleton-hero { height: 280px; border-radius: var(--radius-lg); }
+.skeleton-sharing { height: 74px; }
+.skeleton-grid { height: 350px; }
+
+/* RESPONSIVE DESIGN - MEDIA QUERIES */
+
+@media (max-width: 992px) {
+  .shared-hero-header {
+    height: 320px;
+    padding: 2rem;
+  }
+  .hero-trip-title {
+    font-size: 2.2rem;
+  }
+  .summary-cards-section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .shared-hero-header {
+    height: 260px;
+    padding: 1.5rem;
+  }
+  .hero-trip-title {
+    font-size: 1.8rem;
+  }
+  .sharing-card {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1.25rem 1.5rem;
+  }
+  .sharing-right {
+    border-top: 1px solid var(--border);
+    padding-top: 1rem;
+  }
+  .copy-trip-card {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1.25rem 1.5rem;
+  }
+  .btn-copy-cta {
+    width: 100%;
+    text-align: center;
+  }
+  .copy-login-prompt {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .shared-hero-header {
+    border-radius: 0;
+    margin: -1.5rem -1.25rem 1.5rem;
+    height: 240px;
+  }
+  .summary-cards-section {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .city-section-header {
+    height: 160px;
+    padding: 1rem;
+  }
+  .city-name-title {
+    font-size: 1.4rem;
+  }
+  .city-header-right {
+    display: none; /* Hide header details on mobile stops */
+  }
+  .city-days-container {
+    padding: 1rem;
+  }
+}
