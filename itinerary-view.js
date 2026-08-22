@@ -187,6 +187,16 @@ function renderHeader() {
   const linkFullBudgetView = document.getElementById("linkFullBudgetView");
   if (linkFullBudgetView) linkFullBudgetView.href = `budget.html?tripId=${activeTrip.id}`;
 
+  // Rewrite Explore & Activities sidebar links to preserve active trip context
+  const exploreLink = document.getElementById("exploreSidebarLink");
+  if (exploreLink) {
+    exploreLink.href = `explore.html?tripId=${activeTrip.id}`;
+  }
+  const activitiesLink = document.getElementById("activitiesSidebarLink");
+  if (activitiesLink) {
+    activitiesLink.href = `activities.html?tripId=${activeTrip.id}`;
+  }
+
   // Metrics
   const startStr = formatDateShort(activeTrip.startDate);
   const endStr = formatDateLong(activeTrip.endDate);
@@ -759,13 +769,33 @@ function closeDayInspectorOnBackdrop(event) {
   }
 }
 
-/**
- * Share Modal Actions
- */
 function openShareModal() {
   const input = document.getElementById("shareLinkInput");
-  input.value = window.location.href;
+  const url = new URL(window.location.href);
+  url.pathname = url.pathname.replace('itinerary-view.html', 'shared-itinerary.html');
+  input.value = url.toString();
+
+  // Populate checkbox settings
+  document.getElementById("sharePublicToggle").checked = activeTrip.isPublic || false;
+  document.getElementById("shareBudgetToggle").checked = activeTrip.isBudgetPublic || false;
+
   document.getElementById("shareModal").classList.add("visible");
+}
+
+function saveShareSettings() {
+  if (!activeTrip) return;
+
+  activeTrip.isPublic = document.getElementById("sharePublicToggle").checked;
+  activeTrip.isBudgetPublic = document.getElementById("shareBudgetToggle").checked;
+
+  // Save changes to state & localStorage
+  const index = allTrips.findIndex(t => t.id === activeTrip.id);
+  if (index !== -1) {
+    allTrips[index] = activeTrip;
+    localStorage.setItem('globaltrotter_trips', JSON.stringify(allTrips));
+  }
+
+  showToast("Sharing settings updated successfully!", "success");
 }
 
 function closeShareModal() {
