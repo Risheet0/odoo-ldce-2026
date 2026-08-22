@@ -12,7 +12,7 @@
   <!-- Dashboard Root Grid Container -->
   <div class="dashboard-container">
 
-    <!-- SIDEBAR (LEFT) -->
+    <!-- SIDEBAR (LEFT) - DEEP GREEN & TRAVEL ILLUSTRATED -->
     <aside id="sidebar" class="sidebar">
       <div class="sidebar-logo">
         <div class="logo-icon">
@@ -59,6 +59,13 @@
         </button>
       </nav>
 
+      <!-- Sidebar Bottom Travel Decors -->
+      <div class="sidebar-decor" style="padding: 0 1.5rem; opacity: 0.15;">
+        <svg viewBox="0 0 100 30" style="width: 100%; fill: none; stroke: #FAF7F0; stroke-width: 1.5;">
+          <path d="M0 25 L10 15 L25 25 L40 10 L60 25 L75 5 L100 25" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+
       <div class="sidebar-footer">
         <button class="nav-link" onclick="handleLogout()" style="color: var(--error);">
           <svg viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
@@ -70,7 +77,7 @@
     <!-- MAIN DASHBOARD CONTENT AREA -->
     <main class="main-content">
       
-      <!-- TOP HEADER BAR -->
+      <!-- TOP HEADER BAR - WITH DECORATIVE LANDSCAPES -->
       <header class="dashboard-header">
         <div class="header-left">
           <!-- Mobile Sidebar Toggle -->
@@ -83,6 +90,15 @@
             <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
             <input type="text" class="search-input" placeholder="Search trips, itineraries..." oninput="handleSimulatedSearch(this.value)">
           </div>
+        </div>
+
+        <!-- Decorative Inline Mountain/Cloud SVG -->
+        <div class="header-decor-img" style="width: 140px; height: 40px; opacity: 0.1; display: flex; align-items: center; justify-content: center;" aria-hidden="true">
+          <svg viewBox="0 0 100 30" style="width:100%; height:100%; fill:none; stroke:var(--text-primary); stroke-width: 1.5;">
+            <!-- Mountain outlines -->
+            <path d="M10 28 L35 10 L55 25 L75 5 L95 28" />
+            <circle cx="85" cy="10" r="4" fill="var(--text-primary)" stroke="none"/>
+          </svg>
         </div>
 
         <div class="header-right">
@@ -117,7 +133,6 @@
           <!-- User Profile Trigger -->
           <button class="profile-trigger" onclick="showSimulatedAction('Profile configurations clicked')">
             <div class="avatar-wrapper">
-              <!-- Using standard premium avatar pattern -->
               <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt="Jay's avatar" class="avatar-img">
             </div>
             <span class="profile-name">Jay 👋</span>
@@ -134,9 +149,9 @@
           <p class="greeting-subtitle">Where is your next adventure taking you?</p>
         </section>
 
-        <!-- DASHBOARD HERO PANEL -->
+        <!-- DASHBOARD HERO PANEL - ILLUSTRATED COVER -->
         <section class="dashboard-hero">
-          <img src="assets/dashboard_hero.png" alt="Highway winding towards mountains during sunset representing travel planning" class="hero-banner-img">
+          <img src="assets/dashboard_hero.png" alt="Woodland highway road winding towards mountains sunset banner illustration" class="hero-banner-img">
           <div class="hero-content">
             <span class="hero-tag">Smarter Travel Planning</span>
             <h3 class="hero-title">Plan Your Next Adventure</h3>
@@ -203,13 +218,13 @@
             <!-- Dynamic Trips list grid wrapper -->
             <div id="tripsGrid" class="trips-grid">
               
-              <!-- Trip Card 1 (Tokyo) -->
+              <!-- Trip Card 1 (Tokyo - Kyoto temple sunset picture) -->
               <article class="trip-card" id="trip-tokyo">
                 <button class="trip-delete-btn" onclick="deleteTrip('trip-tokyo', 1, 4, 12, 2800)" aria-label="Remove trip to Tokyo">
                   <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
                 </button>
                 <div class="trip-card-banner">
-                  <img src="https://images.unsplash.com/photo-1540959733332-eab4deceeaf7?auto=format&fit=crop&w=400&q=80" alt="Scenic view of Tokyo skyline with Tower" class="trip-banner-img">
+                  <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=400&q=80" alt="Scenic Kyoto shrine at sunset representing Tokyo trip" class="trip-banner-img">
                   <span class="trip-status-badge" style="background-color: var(--primary);">Upcoming</span>
                 </div>
                 <div class="trip-card-body">
@@ -244,7 +259,7 @@
                 </div>
               </article>
 
-              <!-- Trip Card 2 (Paris) -->
+              <!-- Trip Card 2 (Paris - Eiffel tower sunset) -->
               <article class="trip-card" id="trip-paris">
                 <button class="trip-delete-btn" onclick="deleteTrip('trip-paris', 1, 2, 6, 1450)" aria-label="Remove trip to Paris">
                   <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
