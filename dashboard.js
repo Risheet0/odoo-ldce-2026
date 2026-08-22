@@ -392,10 +392,10 @@ function renderTrips() {
 }
 
 /**
- * Navigate to Itinerary Builder page for a trip
+ * Navigate to Itinerary View page for a trip
  */
 function viewTrip(tripId) {
-  window.location.href = `itinerary.html?tripId=${tripId}`;
+  window.location.href = `itinerary-view.html?tripId=${tripId}`;
 }
 
 /**

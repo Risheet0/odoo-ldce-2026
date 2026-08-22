@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="GlobalTrotters Explore Cities - Discover new destinations and add them to your travel itinerary.">
+  <title>GlobalTrotters - Discover Cities</title>
+  <!-- Load the main dashboard css to reuse sidebar, header, global styles, and tokens -->
+  <link rel="stylesheet" href="dashboard.css">
+  <!-- Load specific styling for Explore page -->
+  <link rel="stylesheet" href="explore.css">
+</head>
+<body>
+
+  <!-- Dashboard Root Grid Container -->
+  <div class="dashboard-container">
+
+    <!-- SIDEBAR (LEFT) - DEEP GREEN & TRAVEL ILLUSTRATED -->
+    <aside id="sidebar" class="sidebar">
+      <div class="sidebar-logo">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10"/>
+            <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>
+          </svg>
+        </div>
+        <span>GlobalTrotters</span>
+      </div>
+
+      <nav class="sidebar-nav" aria-label="Main Navigation">
+        <a href="dashboard.html" class="nav-link">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          Home
+        </a>
+        <a href="dashboard.html" class="nav-link">
+          <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+          My Trips
+        </a>
+        <a href="explore.html" class="nav-link active">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M16.2 7.8l-2 6.4-6.4 2 2-6.4z"/></svg>
+          Explore
+        </a>
+        <a href="activities.html" class="nav-link">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2 12 12 22 17 12 22 2 17 12 12"/></svg>
+          Activities
+        </a>
+        <button class="nav-link" onclick="showSimulatedAction('Navigated to Calendar')">
+          <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Calendar
+        </button>
+        <a href="budget.html" class="nav-link">
+          <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          Budget
+        </a>
+        <button class="nav-link" onclick="showSimulatedAction('Navigated to Shared Trips')">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          Shared Trips
+        </button>
+        <button class="nav-link" onclick="showSimulatedAction('Navigated to Profile')">
+          <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          Profile
+        </button>
+        <button class="nav-link" onclick="showSimulatedAction('Navigated to Settings')">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          Settings
+        </button>
+      </nav>
+
+      <!-- Sidebar Bottom Travel Decors -->
+      <div class="sidebar-decor" style="padding: 0 1.5rem; opacity: 0.15;">
+        <svg viewBox="0 0 100 30" style="width: 100%; fill: none; stroke: #FAF7F0; stroke-width: 1.5;">
+          <path d="M0 25 L10 15 L25 25 L40 10 L60 25 L75 5 L100 25" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+
+      <div class="sidebar-footer">
+        <button class="nav-link" onclick="handleLogout()" style="color: var(--error);">
+          <svg viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+          Logout
+        </button>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT AREA -->
+    <main class="main-content">
+      
+      <!-- TOP HEADER BAR -->
+      <header class="dashboard-header">
+        <div class="header-left">
+          <!-- Mobile Sidebar Toggle -->
+          <button class="menu-toggle-btn" onclick="toggleSidebar()" aria-label="Toggle Navigation Menu">
+            <svg viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+          
+          <!-- Topbar Search Bar Input (linked to Explore search) -->
+          <div class="search-bar">
+            <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="text" id="topbarSearchInput" class="search-input" placeholder="Search cities, countries..." oninput="syncAndExecuteSearch(this.value)">
+          </div>
+        </div>
+
+        <!-- Decorative Inline Mountain/Cloud SVG -->
+        <div class="header-decor-img" style="width: 140px; height: 40px; opacity: 0.1; display: flex; align-items: center; justify-content: center;" aria-hidden="true">
+          <svg viewBox="0 0 100 30" style="width:100%; height:100%; fill:none; stroke:var(--text-primary); stroke-width: 1.5;">
+            <path d="M10 28 L35 10 L55 25 L75 5 L95 28" />
+            <circle cx="85" cy="10" r="4" fill="var(--text-primary)" stroke="none"/>
+          </svg>
+        </div>
+
+        <div class="header-right">
+          <!-- Notifications Center -->
+          <button class="notification-bell-btn" onclick="toggleNotifications()" aria-label="Toggle notifications dropdown">
+            <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+            <span id="bellBadge" class="notification-badge" style="display: none;"></span>
+          </button>
+
+          <!-- User Profile Trigger -->
+          <button class="profile-trigger" onclick="showSimulatedAction('Profile configurations clicked')">
+            <div class="avatar-wrapper">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt="Jay's avatar" class="avatar-img">
+            </div>
+            <span class="profile-name">Jay 👋</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- WORKSPACE CONTAINER -->
+      <div class="workspace-body">
+        
+        <!-- Back Navigation Link (visible only when tripId context is present) -->
+        <div id="backNavContainer" class="back-navigation" style="display: none;">
+          <a href="#" id="backToTripBtn" class="btn-back">
+            <svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            Back to Itinerary Builder
+          </a>
+        </div>
+
+        <!-- EXPLORE PAGE HEADER -->
+        <section class="explore-header-section">
+          <div class="explore-header-content">
+            <h2 class="explore-page-title">Explore Cities</h2>
+            <p class="explore-page-subtitle">Discover amazing destinations and find the perfect cities for your next adventure.</p>
+          </div>
+          
+          <!-- Debug simulated API failure toggle -->
+          <div class="api-toggle-container">
+            <label class="toggle-switch">
+              <input type="checkbox" id="apiFailureToggle" onchange="toggleApiErrorSim(this.checked)">
+              <span class="slider-round"></span>
+            </label>
+            <span class="api-toggle-label">Simulate API Failure</span>
+          </div>
+        </section>
+
+        <!-- PROMINENT SEARCH BAR SECTION -->
+        <section class="prominent-search-section">
+          <div class="main-search-wrapper">
+            <div class="search-input-container">
+              <svg class="search-icon-svg" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <input type="text" id="exploreSearchInput" class="prominent-search-input" placeholder="Search cities, countries, or regions..." oninput="handleSearchInput(this.value)">
+              <button id="clearSearchBtn" class="clear-search-btn" onclick="clearSearch()" aria-label="Clear search query" style="display: none;">
+                <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+              </button>
+            </div>
+            
+            <!-- Quick searches badges -->
+            <div class="quick-badges-container">
+              <span class="quick-badges-label">Try searching:</span>
+              <button class="quick-badge" onclick="executeQuickSearch('Paris')">Paris</button>
+              <button class="quick-badge" onclick="executeQuickSearch('Tokyo')">Tokyo</button>
+              <button class="quick-badge" onclick="executeQuickSearch('Dubai')">Dubai</button>
+              <button class="quick-badge" onclick="executeQuickSearch('London')">London</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- EXPLORE SPLIT GRID -->
+        <div class="explore-split-layout">
+          
+          <!-- FILTERS SIDEBAR (LEFT) -->
+          <aside class="filters-sidebar" id="filtersSidebar">
+            <div class="filter-sidebar-header">
+              <h3>Filters</h3>
+              <button class="btn-clear-filters" onclick="clearAllFilters()">Clear Filters</button>
+            </div>
+
+            <!-- Country Search Filter -->
+            <div class="filter-group">
+              <label class="filter-label" for="filterCountryInput">Country</label>
+              <div class="filter-country-search">
+                <input type="text" id="filterCountryInput" class="filter-country-input" placeholder="Type country..." oninput="handleCountryFilterInput(this.value)">
+                <!-- Country Dropdown list -->
+                <div id="filterCountryDropdown" class="filter-dropdown-list">
+                  <!-- Generated dynamically -->
+                </div>
+              </div>
+            </div>
+
+            <!-- Region Checkboxes -->
+            <div class="filter-group">
+              <span class="filter-label">Region</span>
+              <div class="filter-checkbox-list">
+                <label class="checkbox-label">
+                  <input type="checkbox" name="regionFilter" value="Europe" onchange="applyFilters()">
+                  <span class="custom-checkbox"></span>
+                  Europe
+                </label>
+                <label class="checkbox-label">
+                  <input type="checkbox" name="regionFilter" value="Asia" onchange="applyFilters()">
+                  <span class="custom-checkbox"></span>
+                  Asia
+                </label>
+                <label class="checkbox-label">
+                  <input type="checkbox" name="regionFilter" value="North America" onchange="applyFilters()">
+                  <span class="custom-checkbox"></span>
+                  North America
+                </label>
+                <label class="checkbox-label">
+                  <input type="checkbox" name="regionFilter" value="South America" onchange="applyFilters()">
+                  <span class="custom-checkbox"></span>
+                  South America
+                </label>
+                <label class="checkbox-label">
+                  <input type="checkbox" name="regionFilter" value="Africa" onchange="applyFilters()">
+                  <span class="custom-checkbox"></span>
+                  Africa
+                </label>
+                <label class="checkbox-label">
+                  <input type="checkbox" name="regionFilter" value="Oceania" onchange="applyFilters()">
+                  <span class="custom-checkbox"></span>
+                  Oceania
+                </label>
+              </div>
+            </div>
+
+            <!-- Cost Index Select Chips -->
+            <div class="filter-group">
+              <span class="filter-label">Cost Index</span>
+              <div class="filter-chips-grid">
+                <button class="filter-chip-btn" data-cost="Budget" onclick="toggleCostFilter(this)">Budget ($)</button>
+                <button class="filter-chip-btn" data-cost="Moderate" onclick="toggleCostFilter(this)">Moderate ($$)</button>
+                <button class="filter-chip-btn" data-cost="Expensive" onclick="toggleCostFilter(this)">Expensive ($$$)</button>
+              </div>
+            </div>
+
+            <!-- Popularity Selector -->
+            <div class="filter-group">
+              <span class="filter-label">Popularity</span>
+              <div class="filter-radio-list">
+                <label class="radio-label">
+                  <input type="radio" name="popularityFilter" value="All" checked onchange="applyFilters()">
+                  <span class="custom-radio"></span>
+                  All
+                </label>
+                <label class="radio-label">
+                  <input type="radio" name="popularityFilter" value="Most Popular" onchange="applyFilters()">
+                  <span class="custom-radio"></span>
+                  Most Popular (&ge;90)
+                </label>
+                <label class="radio-label">
+                  <input type="radio" name="popularityFilter" value="Trending" onchange="applyFilters()">
+                  <span class="custom-radio"></span>
+                  Trending (&ge;80)
+                </label>
+              </div>
+            </div>
+            
+            <button class="btn-clear-filters-mobile btn-primary" onclick="clearAllFilters()">Clear All Filters</button>
+          </aside>
+
+          <!-- CONTENT COLUMN (RIGHT) -->
+          <section class="results-column">
+            
+            <!-- Mobile Filters trigger & Sorting row -->
+            <div class="results-header-row">
+              <div class="results-count-container">
+                <button class="btn-mobile-filters" onclick="toggleMobileFilters()">
+                  <svg viewBox="0 0 24 24"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>
+                  Filters
+                </button>
+                <span id="resultsCountText" class="results-count">Loading destinations...</span>
+              </div>
+
+              <!-- Sorting dropdown selector -->
+              <div class="sorting-container">
+                <label for="sortBySelect" class="sorting-label">Sort by</label>
+                <select id="sortBySelect" class="sorting-select" onchange="applySorting(this.value)">
+                  <option value="popularity">Popularity (High to Low)</option>
+                  <option value="cost_asc">Cost: Low to High</option>
+                  <option value="cost_desc">Cost: High to Low</option>
+                  <option value="name">Name A–Z</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- POPULAR DESTINATIONS PRE-SEARCH SECTION -->
+            <div id="featuredDestinationsSection" class="featured-destinations-section">
+              <h3 class="explore-section-title">Popular Destinations</h3>
+              <!-- Grid populated with 5 featured cities dynamically -->
+              <div id="featuredGrid" class="featured-cities-grid">
+                <!-- Dynamically rendered -->
+              </div>
+            </div>
+
+            <!-- SEARCH RESULTS GRID -->
+            <div id="resultsGrid" class="results-grid">
+              <!-- Dynamically populated city cards -->
+            </div>
+
+            <!-- SKELETON LOADER GRID -->
+            <div id="skeletonGrid" class="skeleton-results-grid" style="display: none;">
+              <div class="skeleton-card">
+                <div class="skeleton-card-image"></div>
+                <div class="skeleton-card-body">
+                  <div class="skeleton-text skeleton-title-line"></div>
+                  <div class="skeleton-text skeleton-sub-line"></div>
+                  <div class="skeleton-text skeleton-desc-line"></div>
+                  <div class="skeleton-text skeleton-desc-line-short"></div>
+                  <div class="skeleton-flex">
+                    <div class="skeleton-text skeleton-badge-line"></div>
+                    <div class="skeleton-text skeleton-badge-line"></div>
+                  </div>
+                  <div class="skeleton-button"></div>
+                </div>
+              </div>
+              <div class="skeleton-card">
+                <div class="skeleton-card-image"></div>
+                <div class="skeleton-card-body">
+                  <div class="skeleton-text skeleton-title-line"></div>
+                  <div class="skeleton-text skeleton-sub-line"></div>
+                  <div class="skeleton-text skeleton-desc-line"></div>
+                  <div class="skeleton-text skeleton-desc-line-short"></div>
+                  <div class="skeleton-flex">
+                    <div class="skeleton-text skeleton-badge-line"></div>
+                    <div class="skeleton-text skeleton-badge-line"></div>
+                  </div>
+                  <div class="skeleton-button"></div>
+                </div>
+              </div>
+              <div class="skeleton-card">
+                <div class="skeleton-card-image"></div>
+                <div class="skeleton-card-body">
+                  <div class="skeleton-text skeleton-title-line"></div>
+                  <div class="skeleton-text skeleton-sub-line"></div>
+                  <div class="skeleton-text skeleton-desc-line"></div>
+                  <div class="skeleton-text skeleton-desc-line-short"></div>
+                  <div class="skeleton-flex">
+                    <div class="skeleton-text skeleton-badge-line"></div>
+                    <div class="skeleton-text skeleton-badge-line"></div>
+                  </div>
+                  <div class="skeleton-button"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- EMPTY STATE (No destinations matching query) -->
+            <div id="emptySearchState" class="empty-search-state" style="display: none;">
+              <div class="empty-state-icon">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              </div>
+              <h4 class="empty-state-title">No destinations found</h4>
+              <p class="empty-state-text">Try another city, country, or region.</p>
+              <button class="btn-primary" onclick="clearSearch()">Clear Search</button>
+            </div>
+
+            <!-- ERROR STATE -->
+            <div id="errorSearchState" class="error-search-state" style="display: none;">
+              <div class="error-state-icon">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              </div>
+              <h4 class="error-state-title">We couldn't load destinations.</h4>
+              <p class="error-state-text">There was a connection issue with the database servers.</p>
+              <button class="btn-primary" onclick="retryLoadingDestinations()">Try Again</button>
+            </div>
+
+          </section>
+
+        </div>
+
+      </div>
+
+    </main>
+
+  </div>
+
+  <!-- ADD STOP CONTEXTUAL MODAL -->
+  <div id="addToTripModal" class="modal-backdrop" onclick="closeModalOnBackdrop(event, 'addToTripModal')">
+    <div class="modal-card">
+      <button class="modal-close-btn" onclick="closeAddToTripModal()" aria-label="Close modal">
+        <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      
+      <h3 class="modal-title">Add to Trip Itinerary</h3>
+      
+      <form id="addToTripForm" onsubmit="handleAddToTripSubmit(event)">
+        <!-- Hidden input for selected city name -->
+        <input type="hidden" id="modalSelectedCity">
+
+        <!-- Trip Selector Dropdown -->
+        <div class="form-group" id="modalTripSelectorGroup" style="margin-bottom: 1.25rem;">
+          <label for="modalTripSelect" class="form-label">Select Destination Trip</label>
+          <div class="input-wrapper">
+            <svg class="input-icon" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+            <select id="modalTripSelect" class="form-input" style="padding-left: 42px;" required onchange="handleModalTripSelectionChange(this.value)">
+              <!-- Loaded dynamically -->
+            </select>
+          </div>
+        </div>
+
+        <!-- Auto-selected trip info summary banner -->
+        <div id="modalSelectedTripBanner" class="modal-trip-banner" style="display: none;">
+          <span class="trip-banner-tag" id="modalSelectedTripStatus">Upcoming</span>
+          <h4 id="modalSelectedTripName" class="trip-banner-title">Trip Title</h4>
+          <p id="modalSelectedTripDates" class="trip-banner-dates">Dates</p>
+        </div>
+
+        <!-- Dates row grid -->
+        <div class="modal-form-grid">
+          <div class="form-group" style="margin-bottom: 1.5rem;">
+            <label for="modalArrivalDate" class="form-label">Arrival Date</label>
+            <div class="input-wrapper">
+              <input type="date" id="modalArrivalDate" class="form-input" style="padding-left: 16px;" required>
+            </div>
+          </div>
+          <div class="form-group" style="margin-bottom: 1.5rem;">
+            <label for="modalDepartureDate" class="form-label">Departure Date</label>
+            <div class="input-wrapper">
+              <input type="date" id="modalDepartureDate" class="form-input" style="padding-left: 16px;" required>
+            </div>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="submit-btn">
+          <span class="btn-text">Confirm Stop Location</span>
+          <span class="btn-spinner" aria-hidden="true"></span>
+          <svg class="btn-success-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- CITY DETAILS DRAWER (Slides in from the right) -->
+  <div id="cityDetailsDrawer" class="drawer-backdrop" onclick="closeDrawerOnBackdrop(event)">
+    <div class="details-drawer">
+      <button class="drawer-close-btn" onclick="closeCityDetailsDrawer()" aria-label="Close details drawer">
+        <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+
+      <div class="drawer-hero-image-container">
+        <img id="drawerCityImage" src="" alt="" class="drawer-hero-img">
+        <div class="drawer-image-overlay"></div>
+      </div>
+
+      <div class="drawer-body">
+        <div class="drawer-title-row">
+          <div>
+            <h3 id="drawerCityName" class="drawer-city-name">City Name</h3>
+            <span id="drawerCityLocation" class="drawer-location">Country, Region</span>
+          </div>
+          <span id="drawerCostBadge" class="drawer-cost-badge">$$$</span>
+        </div>
+
+        <!-- Popularity Index Indicator -->
+        <div class="drawer-popularity-card">
+          <div class="popularity-metrics">
+            <span class="popularity-label">Popularity Score</span>
+            <strong id="drawerPopularityText" class="popularity-value">95/100</strong>
+          </div>
+          <div class="popularity-progress-bg">
+            <div id="drawerPopularityBar" class="popularity-progress-fg" style="width: 95%;"></div>
+          </div>
+        </div>
+
+        <!-- Description -->
+        <div class="drawer-description-section">
+          <h4>About the Destination</h4>
+          <p id="drawerCityDescription">City description goes here.</p>
+        </div>
+
+        <!-- Highlights and Quick Facts -->
+        <div class="drawer-info-grid">
+          <div class="info-block">
+            <span class="info-block-label">Region</span>
+            <strong id="drawerRegionText">Europe</strong>
+          </div>
+          <div class="info-block">
+            <span class="info-block-label">Local Language</span>
+            <strong id="drawerLanguageText">French</strong>
+          </div>
+        </div>
+
+        <!-- Floating action footer -->
+        <div class="drawer-footer">
+          <button id="drawerAddButton" class="btn-primary drawer-add-btn" onclick="handleAddFromDrawer()">
+            <svg viewBox="0 0 24 24" style="width:18px; height:18px; fill:none; stroke:currentColor; stroke-width:3; margin-right:8px;"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Add to Trip Plan
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Shared Global JS (Contains notifications and logout helpers) -->
+  <script src="dashboard.js"></script>
+  <!-- Load specific Logic for Discover Screen -->
+  <script src="explore.js"></script>
+</body>
+</html>
