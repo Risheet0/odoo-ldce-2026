@@ -95,6 +95,10 @@ function loadTripItinerary() {
   if (activitiesLink) {
     activitiesLink.href = `activities.html?tripId=${activeTrip.id}`;
   }
+  const budgetLink = document.getElementById("budgetSidebarLink");
+  if (budgetLink) {
+    budgetLink.href = `budget.html?tripId=${activeTrip.id}`;
+  }
 
   // Simulate premium network delay with skeleton loaders
   skeleton.style.display = "block";
