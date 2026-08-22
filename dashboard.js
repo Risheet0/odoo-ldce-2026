@@ -502,12 +502,36 @@ function updateOverviewStats() {
   statBudgetEl.textContent = `$${totalBudgetAmount.toLocaleString()}`;
 }
 
-// Call renderTrips initially to display local storage data
+// Call renderTrips and sync user profile initially
 document.addEventListener('DOMContentLoaded', () => {
+  syncUserProfileUI();
   if (tripsGrid) {
     renderTrips();
   }
 });
+
+/**
+ * Synchronize user profile information from local storage
+ */
+function syncUserProfileUI() {
+  const storedUser = localStorage.getItem('globaltrotter_user');
+  if (storedUser) {
+    try {
+      const user = JSON.parse(storedUser);
+      const avatarImgs = document.querySelectorAll('.avatar-img');
+      const profileNames = document.querySelectorAll('.profile-name');
+      const greetingTitle = document.querySelector('.greeting-title');
+      
+      if (user.avatar) {
+        avatarImgs.forEach(img => img.src = user.avatar);
+      }
+      if (user.name) {
+        profileNames.forEach(el => el.textContent = `${user.name} 👋`);
+        if (greetingTitle) greetingTitle.textContent = `Good morning, ${user.name}`;
+      }
+    } catch (e) {}
+  }
+}
 
 /**
  * Filters existing trip cards matching search keywords

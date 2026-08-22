@@ -28,8 +28,30 @@ const fallbackCityImages = [
 
 // Document Load Event
 document.addEventListener("DOMContentLoaded", () => {
+  syncUserProfileUI();
   loadTripItinerary();
 });
+
+/**
+ * Synchronize user profile information from local storage
+ */
+function syncUserProfileUI() {
+  const storedUser = localStorage.getItem('globaltrotter_user');
+  if (storedUser) {
+    try {
+      const user = JSON.parse(storedUser);
+      const avatarImgs = document.querySelectorAll('.avatar-img');
+      const profileNames = document.querySelectorAll('.profile-name');
+      
+      if (user.avatar) {
+        avatarImgs.forEach(img => img.src = user.avatar);
+      }
+      if (user.name) {
+        profileNames.forEach(el => el.textContent = `${user.name} 👋`);
+      }
+    } catch (e) {}
+  }
+}
 
 /**
  * Parses query parameters and loads trip data

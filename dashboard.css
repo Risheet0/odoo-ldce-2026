@@ -61,6 +61,11 @@
   padding: 0;
 }
 
+svg {
+  fill: none;
+  stroke: currentColor;
+}
+
 html, body {
   min-height: 100vh;
   background-color: var(--bg-main);
