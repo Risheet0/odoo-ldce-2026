@@ -4,6 +4,42 @@
    ========================================================================== */
 
 /* Page Header & Navigation Extension */
+.back-navigation {
+  margin-bottom: 1.5rem;
+}
+
+.btn-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background-color: var(--bg-card);
+  padding: 0.6rem 1.15rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-fast);
+  text-decoration: none;
+}
+
+.btn-back svg {
+  width: 17px;
+  height: 17px;
+  stroke: currentColor;
+  stroke-width: 2.2;
+  fill: none;
+  transition: transform var(--transition-fast);
+}
+
+.btn-back:hover {
+  color: var(--primary);
+  border-color: var(--primary-light);
+  transform: translateX(-3px);
+  box-shadow: var(--shadow-md);
+}
+
 .budget-page-header {
   display: flex;
   justify-content: space-between;
