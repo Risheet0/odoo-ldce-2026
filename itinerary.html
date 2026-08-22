@@ -189,6 +189,10 @@
 
             <!-- Page actions -->
             <div class="itinerary-actions">
+              <a href="#" id="btnViewItinerary" class="btn-secondary" style="display: inline-flex; align-items: center; gap: 0.4rem; text-decoration: none;" onclick="goToItineraryView(event)" title="Switch to Itinerary View Mode">
+                <svg viewBox="0 0 24 24" style="width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2;"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                View Itinerary
+              </a>
               <button class="btn-secondary" id="btnSaveItinerary" onclick="saveItineraryState()">
                 <span class="btn-text">Save Itinerary</span>
                 <span class="btn-spinner" aria-hidden="true"></span>
