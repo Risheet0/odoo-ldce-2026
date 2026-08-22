@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="GlobalTrotters Trip Calendar & Timeline - see your daily schedule, destinations, and activities at a glance.">
+  <title>GlobalTrotters - Trip Calendar</title>
+  <!-- Load the main dashboard css to reuse sidebar, header, global styles, and tokens -->
+  <link rel="stylesheet" href="dashboard.css">
+  <!-- Load specific styling for Calendar / Timeline -->
+  <link rel="stylesheet" href="calendar.css">
+</head>
+<body>
+
+  <!-- Dashboard Root Grid Container -->
+  <div class="dashboard-container">
+
+    <!-- SIDEBAR (LEFT) - DEEP GREEN & TRAVEL ILLUSTRATED -->
+    <aside id="sidebar" class="sidebar">
+      <div class="sidebar-logo">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10"/>
+            <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>
+          </svg>
+        </div>
+        <span>GlobalTrotters</span>
+      </div>
+
+      <nav class="sidebar-nav" aria-label="Main Navigation">
+        <a href="dashboard.html" class="nav-link">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          Home
+        </a>
+        <a href="dashboard.html" class="nav-link">
+          <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+          My Trips
+        </a>
+        <button class="nav-link" onclick="showSimulatedAction('Navigated to Explore')">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M16.2 7.8l-2 6.4-6.4 2 2-6.4z"/></svg>
+          Explore
+        </button>
+        <a href="calendar.html" class="nav-link active">
+          <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Calendar
+        </a>
+        <button class="nav-link" onclick="showSimulatedAction('Navigated to Budget')">
+          <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          Budget
+        </button>
+        <button class="nav-link" onclick="showSimulatedAction('Navigated to Shared Trips')">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          Shared Trips
+        </button>
+        <button class="nav-link" onclick="showSimulatedAction('Navigated to Profile')">
+          <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          Profile
+        </button>
+        <button class="nav-link" onclick="showSimulatedAction('Navigated to Settings')">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          Settings
+        </button>
+      </nav>
+
+      <!-- Sidebar Bottom Travel Decors -->
+      <div class="sidebar-decor" style="padding: 0 1.5rem; opacity: 0.15;">
+        <svg viewBox="0 0 100 30" style="width: 100%; fill: none; stroke: #FAF7F0; stroke-width: 1.5;">
+          <path d="M0 25 L10 15 L25 25 L40 10 L60 25 L75 5 L100 25" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+
+      <div class="sidebar-footer">
+        <button class="nav-link" onclick="handleLogout()" style="color: var(--error);">
+          <svg viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+          Logout
+        </button>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT AREA -->
+    <main class="main-content">
+      
+      <!-- TOP HEADER BAR -->
+      <header class="dashboard-header">
+        <div class="header-left">
+          <!-- Mobile Sidebar Toggle -->
+          <button class="menu-toggle-btn" onclick="toggleSidebar()" aria-label="Toggle Navigation Menu">
+            <svg viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+          
+          <!-- Trip Selector Dropdown in Header -->
+          <div class="trip-dropdown-selector">
+            <label for="headerTripSelect" class="selector-label">Trip:</label>
+            <select id="headerTripSelect" class="header-select" onchange="switchActiveTrip(this.value)">
+              <!-- Populated dynamically -->
+            </select>
+          </div>
+        </div>
+
+        <div class="header-right">
+          <!-- Notifications Center -->
+          <button class="notification-bell-btn" onclick="toggleNotifications()" aria-label="Toggle notifications dropdown">
+            <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+            <span id="bellBadge" class="notification-badge" style="display: none;"></span>
+          </button>
+
+          <!-- Notification Dropdown Menu -->
+          <div id="notificationDropdown" class="notification-dropdown">
+            <div class="notification-header">
+              <span>Notifications</span>
+              <button class="clear-btn" onclick="clearNotifications()">Dismiss All</button>
+            </div>
+            <div id="notificationList" class="notification-list">
+              <div class="notification-item">
+                <span class="notification-item-text">Welcome back! Open calendar view to organize your stops.</span>
+                <span class="notification-item-time">Just now</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- User Profile Trigger -->
+          <button class="profile-trigger" onclick="showSimulatedAction('Profile configurations clicked')">
+            <div class="avatar-wrapper">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt="Jay's avatar" class="avatar-img">
+            </div>
+            <span class="profile-name">Jay 👋</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- WORKSPACE CONTAINER -->
+      <div class="workspace-body">
+        
+        <!-- PAGE HEADER SECTION -->
+        <section class="calendar-header-section">
+          <div class="header-left-group">
+            <h2 class="greeting-title">Trip Calendar</h2>
+            <p class="greeting-subtitle">See your entire journey and daily plans at a glance.</p>
+            
+            <!-- Quick Trip Info Badges -->
+            <div class="header-meta-badges">
+              <span id="metaTripName" class="meta-badge-item name">--</span>
+              <span id="metaTripDates" class="meta-badge-item dates">
+                <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                <span id="metaDatesText">--</span>
+              </span>
+              <span class="meta-badge-item stops">
+                <svg viewBox="0 0 24 24"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span id="metaStopsCount">0 Cities</span>
+              </span>
+              <span class="meta-badge-item activities">
+                <svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2 12 12 22 17 12 22 2 17 12 12"/></svg>
+                <span id="metaActivitiesCount">0 Activities</span>
+              </span>
+            </div>
+          </div>
+          
+          <div class="header-actions">
+            <button class="btn-secondary" onclick="navigateToItinerary()">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 6px;"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+              Edit Itinerary
+            </button>
+            <button class="btn-primary" onclick="navigateToAddActivity()">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 6px;"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              Add Activity
+            </button>
+          </div>
+        </section>
+
+        <!-- VIEW TOGGLE PANEL -->
+        <section class="toggles-panel">
+          <div class="view-toggles">
+            <button id="calendarViewBtn" class="view-toggle-btn active" onclick="switchViewMode('calendar')">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              Calendar View
+            </button>
+            <button id="timelineViewBtn" class="view-toggle-btn" onclick="switchViewMode('timeline')">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/><path d="M19 21a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2z"/></svg>
+              Timeline View
+            </button>
+          </div>
+        </section>
+
+        <!-- SKELETON LOADER PANEL -->
+        <div id="skeletonContainer" class="calendar-skeleton-container" style="display: none;">
+          <div class="skeleton-main-panel">
+            <div class="skeleton-ctrls"></div>
+            <div class="skeleton-grid-mesh"></div>
+          </div>
+          <div class="skeleton-side-panel"></div>
+        </div>
+
+        <!-- ERROR PANEL -->
+        <div id="errorState" class="calendar-error-state" style="display: none;">
+          <div class="error-icon">
+            <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+          <h4 class="error-title">Oops! Failed to load calendar</h4>
+          <p id="errorMessage" class="error-message">Something went wrong while loading your trip data. Please reload.</p>
+          <button class="btn-primary" onclick="loadTripCalendarData()">Try Again</button>
+        </div>
+
+        <!-- EMPTY STATE PANEL -->
+        <div id="emptyCalendarState" class="calendar-empty-state" style="display: none;">
+          <div class="empty-card">
+            <img src="assets/travel_hero.png" alt="Travel illustration" class="empty-img">
+            <h4 class="empty-title">Your calendar is waiting for adventure.</h4>
+            <p class="empty-text">Add activities to your itinerary stops and they will appear here automatically.</p>
+            <button class="btn-primary" onclick="navigateToAddActivity()">Add Your First Activity</button>
+          </div>
+        </div>
+
+        <!-- MAIN SPLIT WORKSPACE -->
+        <div id="calendarWorkspace" class="calendar-workspace-grid" style="display: none;">
+          
+          <!-- LEFT SIDE: ACTIVE VIEW PANEL (Calendar or Timeline) -->
+          <div class="view-active-panel">
+            
+            <!-- 1. MONTH CALENDAR CONTAINER -->
+            <div id="calendarViewContainer" class="calendar-card-container">
+              <div class="calendar-nav-bar">
+                <h3 id="calendarMonthTitle" class="calendar-month-title">--</h3>
+                <div class="calendar-nav-controls">
+                  <button class="nav-control-btn" onclick="navigateMonth(-1)" aria-label="Previous month">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+                  </button>
+                  <button class="nav-today-btn" onclick="navigateToday()">Today</button>
+                  <button class="nav-control-btn" onclick="navigateMonth(1)" aria-label="Next month">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Day headings row -->
+              <div class="calendar-days-heading">
+                <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+              </div>
+
+              <!-- Monthly grid cells -->
+              <div id="calendarGridMesh" class="calendar-grid-mesh">
+                <!-- Injected dynamically via JS -->
+              </div>
+            </div>
+
+            <!-- 2. TIMELINE PATH CONTAINER (Hidden by default) -->
+            <div id="timelineViewContainer" class="timeline-card-container" style="display: none;">
+              <!-- Renders a vertical travel route of trip stop stops and activities -->
+              <div id="timelineRouteFlow" class="timeline-route-flow">
+                <!-- Injected dynamically via JS -->
+              </div>
+            </div>
+
+          </div>
+
+          <!-- RIGHT SIDE: SUMMARY & DETAILS EXPANSION SIDEBAR -->
+          <div class="summary-details-sidebar">
+            
+            <!-- Selected Day Activities Panel (Shown when date clicked) -->
+            <section id="selectedDayPanel" class="sidebar-widget-card selected-day-card" style="display: none;">
+              <div class="widget-header">
+                <h4 id="selectedDayTitle" class="widget-title">--</h4>
+                <button class="close-panel-btn" onclick="closeSelectedDayPanel()" aria-label="Close day panel">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </button>
+              </div>
+              <div id="selectedDayActivitiesList" class="day-activities-draggable-list">
+                <!-- Drag to reorder items populated here -->
+              </div>
+              <div class="mobile-tip-banner" style="display: none;">
+                💡 <em>Tip: Tap arrow icons to move activities up or down on mobile.</em>
+              </div>
+            </section>
+
+            <!-- Today & Next Activity Alert Widgets -->
+            <section id="upcomingAlertWidget" class="sidebar-widget-card alert-widget-card" style="display: none;">
+              <div class="next-activity-tag">NEXT UP</div>
+              <h4 id="alertActivityName" class="alert-title">--</h4>
+              <div class="alert-time">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <span id="alertActivityTime">--</span>
+              </div>
+              <div class="alert-location">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span id="alertActivityCity">--</span>
+              </div>
+            </section>
+
+            <!-- General Summary Metrics Widget -->
+            <section class="sidebar-widget-card summary-metrics-card">
+              <h4 class="widget-title">Trip Summary</h4>
+              <div class="metrics-grid">
+                <div class="metric-item">
+                  <span class="metric-label">Duration</span>
+                  <span id="sumDuration" class="metric-value">--</span>
+                </div>
+                <div class="metric-item">
+                  <span class="metric-label">Destinations</span>
+                  <span id="sumCities" class="metric-value">--</span>
+                </div>
+                <div class="metric-item">
+                  <span class="metric-label">Activities</span>
+                  <span id="sumActivities" class="metric-value">--</span>
+                </div>
+                <div class="metric-item">
+                  <span class="metric-label">Est. Budget</span>
+                  <span id="sumBudget" class="metric-value">--</span>
+                </div>
+              </div>
+            </section>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </main>
+
+  </div>
+
+  <!-- QUICK EDIT ACTIVITY MODAL BACKDROP Overlay -->
+  <div id="quickEditModal" class="modal-backdrop" onclick="closeQuickEditModalOnBackdrop(event)">
+    <div class="modal-card">
+      <button class="modal-close-btn" onclick="closeQuickEditModal()" aria-label="Close modal">
+        <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      
+      <h3 class="modal-title">Edit Activity</h3>
+      
+      <form id="quickEditForm" onsubmit="handleQuickEditSubmit(event)">
+        <input type="hidden" id="editActId">
+        <input type="hidden" id="editStopId">
+        
+        <!-- Activity Name -->
+        <div class="form-group" style="margin-bottom: 1.25rem;">
+          <label for="editActName" class="form-label">Activity Name</label>
+          <div class="input-wrapper">
+            <input type="text" id="editActName" class="form-input" placeholder="e.g. Louvre Guided Tour" required>
+          </div>
+        </div>
+
+        <!-- Date & Time Row Grid -->
+        <div class="modal-form-grid">
+          <div class="form-group" style="margin-bottom: 1.25rem;">
+            <label for="editActDate" class="form-label">Date</label>
+            <div class="input-wrapper">
+              <input type="date" id="editActDate" class="form-input" style="padding-left: 16px;" required>
+            </div>
+          </div>
+          <div class="form-group" style="margin-bottom: 1.25rem;">
+            <label for="editActTime" class="form-label">Start Time</label>
+            <div class="input-wrapper">
+              <input type="time" id="editActTime" class="form-input" style="padding-left: 16px;" required>
+            </div>
+          </div>
+        </div>
+
+        <!-- Duration & Cost row grid -->
+        <div class="modal-form-grid">
+          <div class="form-group" style="margin-bottom: 1.25rem;">
+            <label for="editActDuration" class="form-label">Duration (e.g. 2 hours)</label>
+            <div class="input-wrapper">
+              <input type="text" id="editActDuration" class="form-input" placeholder="e.g. 2.5 hours" style="padding-left: 16px;" required>
+            </div>
+          </div>
+          <div class="form-group" style="margin-bottom: 1.25rem;">
+            <label for="editActCost" class="form-label">Cost (USD)</label>
+            <div class="input-wrapper">
+              <input type="number" id="editActCost" class="form-input" placeholder="e.g. 25" style="padding-left: 16px;" min="0">
+            </div>
+          </div>
+        </div>
+
+        <!-- Category & Location/Stop selector -->
+        <div class="modal-form-grid">
+          <div class="form-group" style="margin-bottom: 1.5rem;">
+            <label for="editActCategory" class="form-label">Category</label>
+            <div class="input-wrapper">
+              <select id="editActCategory" class="form-input" style="padding-left: 16px; background-color: var(--card-bg); height: 48px;">
+                <option value="Sightseeing">Sightseeing</option>
+                <option value="Food">Food</option>
+                <option value="Adventure">Adventure</option>
+                <option value="Culture">Culture</option>
+                <option value="Transport">Transport</option>
+                <option value="Accommodation">Accommodation</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group" style="margin-bottom: 1.5rem;">
+            <label class="form-label">Destination Stop</label>
+            <div class="input-wrapper">
+              <input type="text" id="editActCityDisplay" class="form-input" style="padding-left: 16px; background-color: var(--bg-card-subtle);" disabled>
+            </div>
+          </div>
+        </div>
+
+        <!-- Submit Buttons -->
+        <button type="submit" class="submit-btn">
+          <span class="btn-text">Save Changes</span>
+          <span class="btn-spinner" aria-hidden="true"></span>
+          <svg class="btn-success-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script src="calendar.js"></script>
+</body>
+</html>
