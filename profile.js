@@ -30,6 +30,9 @@ let currentUser = null;
 document.addEventListener("DOMContentLoaded", () => {
   initUserProfile();
 });
+window.addEventListener("hashchange", () => {
+  handleInitialUrlHash();
+});
 
 /**
  * Initialize User Profile from LocalStorage
