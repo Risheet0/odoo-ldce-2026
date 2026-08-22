@@ -1,0 +1,1110 @@
+/* ==========================================================================
+   GlobalTrotters - Itinerary Builder Specific Stylesheet
+   ========================================================================== */
+
+/* Back Navigation Link */
+.back-navigation {
+  margin-bottom: 0.5rem;
+}
+
+.btn-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 700;
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.btn-back svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  transition: transform var(--transition-fast);
+}
+
+.btn-back:hover {
+  color: var(--primary);
+  transform: translateX(-3px);
+}
+
+.btn-back:hover svg {
+  transform: translateX(-2px);
+}
+
+/* Page Header Custom Layout */
+.itinerary-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 2rem;
+}
+
+.itinerary-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.trip-name {
+  font-family: var(--font-brand);
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+}
+
+.trip-summary-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.summary-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.summary-item svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: var(--primary);
+  stroke-width: 2.2;
+}
+
+.summary-divider {
+  color: var(--border);
+}
+
+.itinerary-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Workspace Grid System */
+.itinerary-grid {
+  display: grid;
+  grid-template-columns: 2.2fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+/* Travel Flow Visual Map Path */
+.route-map-summary-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
+  background-image: radial-gradient(circle at 100% 100%, rgba(217, 119, 6, 0.04) 0%, transparent 50%);
+}
+
+.route-tag {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--accent);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.route-flow-line {
+  font-family: var(--font-brand);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.route-arrow {
+  color: var(--accent);
+  font-weight: 800;
+  display: inline-block;
+  padding: 0 4px;
+}
+
+/* Stops Timeline Container */
+.stops-timeline-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-left: 54px;
+}
+
+/* Connected Travel Vector Line */
+.stops-timeline-container::before {
+  content: '';
+  position: absolute;
+  left: 20px;
+  top: 40px;
+  bottom: 40px;
+  width: 3px;
+  background: dashed var(--border);
+  z-index: 1;
+}
+
+/* Stop Card Item Block */
+.stop-card-wrapper {
+  position: relative;
+  margin-bottom: 2.5rem;
+}
+
+.stop-card-wrapper:last-child {
+  margin-bottom: 0;
+}
+
+/* Timeline numbering nodes */
+.timeline-node-number {
+  position: absolute;
+  left: -54px;
+  top: 15px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--bg-card);
+  border: 3px solid var(--primary);
+  color: var(--primary);
+  font-family: var(--font-brand);
+  font-weight: 800;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(45, 106, 79, 0.15);
+  z-index: 5;
+  transition: transform var(--transition-fast), background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.stop-card-wrapper:hover .timeline-node-number {
+  transform: scale(1.1);
+  background-color: var(--primary);
+  color: white;
+}
+
+/* Dragging items state */
+.stop-card-wrapper.dragging {
+  opacity: 0.4;
+  transform: scale(0.98);
+}
+
+.stop-card-wrapper.drag-over {
+  border-top: 3px solid var(--accent);
+  padding-top: 10px;
+}
+
+/* Premium Stop Card Layout */
+.stop-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+  display: flex;
+  flex-direction: column;
+}
+
+.stop-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary-light);
+}
+
+.stop-card-main-content {
+  display: flex;
+  min-height: 180px;
+}
+
+.stop-card-image-box {
+  width: 220px;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.stop-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s ease;
+}
+
+.stop-card:hover .stop-card-img {
+  transform: scale(1.08);
+}
+
+.stop-card-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(0,0,0,0.4) 0%, transparent 60%);
+}
+
+.stop-duration-badge {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  background: rgba(18, 43, 30, 0.85);
+  color: var(--text-on-dark);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(4px);
+}
+
+.stop-card-details-box {
+  padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.stop-card-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.stop-city-name {
+  font-family: var(--font-brand);
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.stop-country-name {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 2px;
+  display: block;
+}
+
+.stop-card-dates {
+  font-size: 0.86rem;
+  color: var(--accent-terracotta);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.stop-card-dates svg {
+  width: 14px;
+  height: 14px;
+  stroke: var(--accent-terracotta);
+  fill: none;
+  stroke-width: 2.5;
+}
+
+.stop-card-stats {
+  display: flex;
+  gap: 15px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  padding: 10px 0;
+  border-bottom: 1px dashed var(--border);
+  margin-bottom: 1rem;
+}
+
+.stop-stat-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.stop-stat-item svg {
+  width: 14px;
+  height: 14px;
+  stroke: var(--primary);
+  fill: none;
+  stroke-width: 2.2;
+}
+
+.stop-card-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+}
+
+.stop-actions-left {
+  display: flex;
+  gap: 8px;
+}
+
+/* Card Button styles */
+.btn-card-action {
+  background: var(--bg-card-subtle);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  padding: 8px 12px;
+  font-size: 0.84rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all var(--transition-fast);
+}
+
+.btn-card-action svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.2;
+}
+
+.btn-card-action:hover {
+  background-color: var(--border);
+  color: var(--text-primary);
+}
+
+.btn-card-delete:hover {
+  background-color: var(--error-bg);
+  border-color: rgba(217, 56, 56, 0.2);
+  color: var(--error);
+}
+
+.btn-card-primary {
+  background: var(--primary-glow);
+  border: 1px solid rgba(45, 106, 79, 0.2);
+  color: var(--primary);
+}
+
+.btn-card-primary:hover {
+  background-color: var(--primary);
+  border-color: var(--primary);
+  color: white;
+}
+
+/* Order control buttons (Visible on Mobile/Tablet) */
+.stop-card-order-controls {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  z-index: 10;
+}
+
+.btn-order-swap {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid var(--border);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-primary);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-fast);
+}
+
+.btn-order-swap svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+}
+
+.btn-order-swap:hover:not(:disabled) {
+  background-color: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+.btn-order-swap:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* Transport Connector Line between stops */
+.transport-connector-wrapper {
+  margin: 1rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 40px;
+}
+
+.transport-badge {
+  background: var(--bg-card-subtle);
+  border: 1px solid var(--border);
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: var(--shadow-sm);
+  z-index: 2;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.transport-badge:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: scale(1.02);
+}
+
+.transport-badge svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+}
+
+/* Activities list panel in Stop Card */
+.stop-card-activities-list {
+  background-color: var(--bg-card-subtle);
+  border-top: 1px dashed var(--border);
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.stop-activities-header-label {
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  margin-bottom: 4px;
+}
+
+/* Single Activity Entry */
+.activity-item-row {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.activity-item-row:hover {
+  transform: translateX(3px);
+  border-color: var(--primary-light);
+  box-shadow: var(--shadow-sm);
+}
+
+.activity-item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.activity-item-title {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.activity-item-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.activity-meta-dot {
+  color: var(--border);
+}
+
+.activity-cost-badge {
+  background-color: var(--accent-glow);
+  color: var(--accent);
+  padding: 2px 6px;
+  border-radius: var(--radius-xs);
+  font-size: 0.72rem;
+  font-weight: 700;
+  border: 1px solid rgba(217, 119, 6, 0.15);
+}
+
+.activity-actions-row {
+  display: flex;
+  gap: 4px;
+}
+
+.btn-activity-action {
+  background: none;
+  border: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-muted);
+  transition: all var(--transition-fast);
+}
+
+.btn-activity-action svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.2;
+}
+
+.btn-activity-action:hover {
+  color: var(--primary);
+  background-color: var(--bg-input);
+}
+
+.btn-activity-delete:hover {
+  color: var(--error);
+  background-color: var(--error-bg);
+}
+
+/* ==========================================================================
+   DAY-BY-DAY SIDEBAR WIDGET
+   ========================================================================== */
+
+.itinerary-summary-sidebar {
+  position: sticky;
+  top: 105px;
+}
+
+.sticky-sidebar-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  max-height: calc(100vh - 145px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.sidebar-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 1.25rem;
+}
+
+.sidebar-card-header h4 {
+  font-family: var(--font-brand);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.badge {
+  background-color: var(--primary-glow);
+  color: var(--primary);
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+}
+
+.day-by-day-list {
+  overflow-y: auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding-right: 4px;
+}
+
+.day-unit-block {
+  background-color: var(--bg-card-subtle);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.15rem;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.day-unit-block:hover {
+  border-color: var(--primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.day-unit-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 8px;
+}
+
+.day-number-label {
+  font-family: var(--font-brand);
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--accent);
+}
+
+.day-date-label {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  font-weight: 700;
+}
+
+.day-stop-location {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.day-stop-location svg {
+  width: 14px;
+  height: 14px;
+  stroke: var(--primary);
+  fill: none;
+  stroke-width: 2.5;
+}
+
+.day-activities-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border-top: 1px solid var(--border);
+  padding-top: 8px;
+  margin-top: 6px;
+}
+
+.day-activity-bullet {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+.day-activity-bullet::before {
+  content: '•';
+  color: var(--accent);
+  font-weight: 900;
+}
+
+.day-no-activities {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-top: 4px;
+}
+
+/* ==========================================================================
+   AUTOCOMPLETE CITIES INPUT OPTIONS
+   ========================================================================== */
+
+.autocomplete-suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-lg);
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 200;
+  display: none;
+}
+
+.autocomplete-suggestions.visible {
+  display: block;
+}
+
+.suggestion-item {
+  padding: 10px 14px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--bg-main);
+  transition: background-color var(--transition-fast);
+}
+
+.suggestion-item:last-child {
+  border-bottom: none;
+}
+
+.suggestion-item:hover {
+  background-color: var(--bg-card-subtle);
+  color: var(--primary);
+}
+
+/* ==========================================================================
+   SKELETON ANIMATIONS LOADER
+   ========================================================================== */
+
+.skeleton-loader-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.skeleton-text {
+  background: linear-gradient(90deg, var(--bg-input) 25%, var(--border) 50%, var(--bg-input) 75%);
+  background-size: 200% 100%;
+  animation: loading-pulse 1.5s infinite;
+  border-radius: var(--radius-xs);
+}
+
+.skeleton-title {
+  height: 38px;
+  width: 320px;
+  margin-bottom: 8px;
+}
+
+.skeleton-subtitle {
+  height: 20px;
+  width: 200px;
+}
+
+.skeleton-grid {
+  display: grid;
+  grid-template-columns: 2.2fr 1fr;
+  gap: 2.5rem;
+}
+
+.skeleton-left, .skeleton-right {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.skeleton-card {
+  height: 180px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(90deg, var(--bg-input) 25%, var(--border) 50%, var(--bg-input) 75%);
+  background-size: 200% 100%;
+  animation: loading-pulse 1.5s infinite;
+}
+
+.skeleton-card-large {
+  height: 400px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(90deg, var(--bg-input) 25%, var(--border) 50%, var(--bg-input) 75%);
+  background-size: 200% 100%;
+  animation: loading-pulse 1.5s infinite;
+}
+
+@keyframes loading-pulse {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Empty State / Error Cards */
+.itinerary-error-state {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 4rem 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  max-width: 500px;
+  margin: 4rem auto;
+  box-shadow: var(--shadow-md);
+}
+
+.error-icon {
+  width: 56px;
+  height: 56px;
+  background-color: var(--error-bg);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--error);
+}
+
+.error-icon svg {
+  width: 28px;
+  height: 28px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+}
+
+.error-title {
+  font-family: var(--font-brand);
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+
+.error-desc {
+  font-size: 0.94rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.empty-itinerary-state {
+  background-color: var(--bg-card);
+  border: 2px dashed var(--border);
+  border-radius: var(--radius-lg);
+  padding: 4rem 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.15rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.empty-state-illustration {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ==========================================================================
+   CONFIRMATION MODAL & ALERTS
+   ========================================================================== */
+
+.modal-confirm-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  width: 100%;
+  max-width: 440px;
+  padding: 2.25rem;
+  position: relative;
+  box-shadow: var(--shadow-lg);
+  text-align: center;
+  animation: modalSlideUp var(--transition-normal) forwards;
+}
+
+.modal-confirm-icon {
+  width: 56px;
+  height: 56px;
+  background-color: var(--error-bg);
+  color: var(--error);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.modal-confirm-icon svg {
+  width: 26px;
+  height: 26px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+}
+
+.modal-confirm-title {
+  font-family: var(--font-brand);
+  font-size: 1.45rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.modal-confirm-text {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 1.75rem;
+}
+
+.modal-confirm-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-confirm-cancel {
+  flex: 1;
+  padding: 11px;
+  background-color: var(--bg-card-subtle);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color var(--transition-fast);
+}
+
+.btn-confirm-cancel:hover {
+  background-color: var(--border);
+}
+
+.btn-confirm-delete {
+  flex: 1;
+  padding: 11px;
+  background-color: var(--error);
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 12px rgba(217, 56, 56, 0.25);
+  transition: opacity var(--transition-fast);
+}
+
+.btn-confirm-delete:hover {
+  opacity: 0.9;
+}
+
+/* ==========================================================================
+   RESPONSIVE LAYOUT RESPONSES
+   ========================================================================== */
+
+@media (max-width: 1200px) {
+  .itinerary-grid {
+    grid-template-columns: 1.8fr 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .itinerary-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .itinerary-summary-sidebar {
+    position: static;
+  }
+  
+  .sticky-sidebar-card {
+    max-height: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .itinerary-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.25rem;
+  }
+  
+  .itinerary-actions {
+    justify-content: flex-start;
+  }
+
+  .stop-card-main-content {
+    flex-direction: column;
+  }
+
+  .stop-card-image-box {
+    width: 100%;
+    height: 180px;
+  }
+
+  .stop-card-image-overlay {
+    background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 60%);
+  }
+
+  /* Show order controls explicitly on smaller viewports */
+  .stop-card-order-controls {
+    display: flex;
+  }
+
+  /* Hide left side numbering nodes to free space */
+  .stops-timeline-container {
+    padding-left: 20px;
+  }
+
+  .stops-timeline-container::before {
+    left: 0px;
+    top: 25px;
+    bottom: 25px;
+  }
+
+  .timeline-node-number {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .trip-name {
+    font-size: 1.85rem;
+  }
+
+  .itinerary-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .itinerary-actions button {
+    width: 100%;
+  }
+
+  .stop-card-activities-list {
+    padding: 1rem;
+  }
+
+  .activity-item-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    position: relative;
+  }
+
+  .activity-actions-row {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+  }
+}
